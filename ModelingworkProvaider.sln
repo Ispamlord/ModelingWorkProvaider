@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelingworkProvaider", "ModelingworkProvaider\ModelingworkProvaider.csproj", "{99BE786F-CC32-44EB-84A4-1CD963613EEF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99BE786F-CC32-44EB-84A4-1CD963613EEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99BE786F-CC32-44EB-84A4-1CD963613EEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99BE786F-CC32-44EB-84A4-1CD963613EEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99BE786F-CC32-44EB-84A4-1CD963613EEF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0C19DB4E-11A6-439E-A9B7-A9EEF51F48BA}
+	EndGlobalSection
+EndGlobal
