@@ -9,13 +9,12 @@ namespace ModelingworkProvaider
     public class User
     {
         public  int Id { get; set; }
-        public double Time;
+        public int Time;
         private static int nextId { get; set; } = 0;
         public User(int time) {
             Id = nextId;
-            Time = time;
+            Time = time+1;
             nextId++;
-        
         }
     }
 }

@@ -10,44 +10,41 @@ namespace ModelingworkProvaider
     public class RandomForAll
     {
         public Random r_ = new Random();
-        public float Parametre(float min, float max)
+        public float Parametre(float min=10, float max=60)
         {
             float result = (float)(r_.NextDouble());
             return (float)(min + Math.Abs(result) * (max - min));
         }
-        public float Poisson(double lambda)
-        {
-            Random rand = new Random();
-            double L = Math.Exp(-lambda);
-            double p = 1.0;
-            int k = 0;
-            do
-            {
-                k++;
-                p *= rand.NextDouble();
-            }
-            while (p > L);
-            return k - 1;
-        }
         
-
-        public float Parametre_ravn(float min, float max)//равномерное распределение
+        public double PuassonNextArrivalTime(double lambda=20)
         {
-            return (float)(min + r_.NextDouble() * (max - min));
+            // Генерация времени до следующего появления пользователя по Пуассоновскому распределению
+            double u = r_.NextDouble();
+            double data = -Math.Log(1 - u) / lambda;
+            return 3600*data;
         }
 
-        public double Generate()
+        public double Parametre_ravn(double min=10, double max=60)//равномерное распределение
         {
-
-            return 0;
+            return (min + r_.NextDouble() * (max - min));
         }
 
-        public double GenerateNormalDistribution(double mean, double stdDev)
+        public double ExponecialNextArrivalTime(double lambda = 20)
+        {
+            return 3600*-Math.Log(r_.NextDouble()) / lambda;
+        }
+
+        public double GenerateNormalDistribution(double mean=60, double stdDev=5)
         {
             double u1 = 1.0 - r_.NextDouble(); // Равномерно распределенное число от 0 до 1
             double u2 = 1.0 - r_.NextDouble();
             double normal = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2); // Используется Box-Muller transform
-            return (mean + stdDev * normal) * 60; // Преобразование к нужному среднему и стандартному отклонению
+            int r = r_.Next(-1, 1);
+            if (stdDev > mean)
+            {
+                stdDev = mean;
+            }
+            return mean + r*stdDev * normal; // Преобразование к нужному среднему и стандартному отклонению
         }
     }
 }

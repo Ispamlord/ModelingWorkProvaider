@@ -3,27 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace ModelingworkProvaider
 {
     public class Provaider
     {
-        public Queue<User> users = new Queue<User>();
-        public RandomForAll RandomForAll = new RandomForAll();
-        public List<Line> lines = new List<Line>();
-        public int TimeWork {  get; set; }
-        public Provaider(int timeWork, int linecount)
+        private Line[] lines;
+
+        public Provaider(int count)
         {
-            TimeWork = timeWork;
-            for(int i = 0; i< linecount; i++) { 
-                lines.Add(new Line());
+            lines = new Line[count];
+            for (int i = 0; i < lines.Length; i++)
+            {
+                lines[i] = new Line();
             }
         }
-        public void working()
+        public void working(QueueUsers users)
         {
-
+            for(int i = 0; i < lines.Length; i++)
+            {
+                lines[i].check(users);
+                
+            }
         }
-        
     }
 }

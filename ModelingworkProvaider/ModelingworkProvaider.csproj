@@ -57,6 +57,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provaider.cs" />
+    <Compile Include="QueueUsers.cs" />
     <Compile Include="RandomForAll.cs" />
     <Compile Include="User.cs" />
     <EmbeddedResource Include="Form1.resx">
