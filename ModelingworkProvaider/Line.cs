@@ -21,7 +21,6 @@ namespace ModelingworkProvaider
                 {
                     User user = users.Remove();
                     Time = Convert.ToInt32(user.Time) + 1;
-                    otchet = "User is {user.Id}  in the process of processing\n";
                     bussyness = true;
                 }
             }
@@ -30,7 +29,7 @@ namespace ModelingworkProvaider
                 if (Time > 0)
                 {
                     Time--;
-                    otchet += "User on my line be exit";
+                    
                 }
                 if (Time == 0)
                 {

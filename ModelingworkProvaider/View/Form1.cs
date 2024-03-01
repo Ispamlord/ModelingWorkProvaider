@@ -23,7 +23,8 @@ namespace ModelingworkProvaider
         {
             InitializeComponent();
         }
-        
+        public string huinapopov = "Пользователь под Id: ";
+        public string huigav = "зашел в сеть";
         private void Form1_Load(object sender, EventArgs e)
         {
             
@@ -35,6 +36,7 @@ namespace ModelingworkProvaider
             label2.Visible = false;
             textBox4.Visible = true;
             checkBox4.Checked = true;
+            
         }
         private bool IsNumeric(string text)
         {
@@ -88,7 +90,8 @@ namespace ModelingworkProvaider
                 {
                     spawn = Convert.ToInt32(chislo())+1;
                     users.Add(Convert.ToInt32(GenerateTime()));
-                    listBox1.Items.Add(users.cout);
+                    huinapopov += users.cout;
+                    listBox1.Items.Add(huinapopov);
                     spawner = true;
                     continue;
                 }
