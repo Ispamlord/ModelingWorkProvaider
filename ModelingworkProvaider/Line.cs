@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ModelingworkProvaider.Inteface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,12 +8,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace ModelingworkProvaider
 {
-    public class Line
+    public class Line:ILine
     {
         public Line() { }
         private bool bussyness = false;
         public int Time { get; set; } = 0;
-        private string otchet { get; set; } = "";
         public void check(QueueUsers users)
         {
             if (bussyness == false)
@@ -37,9 +37,6 @@ namespace ModelingworkProvaider
                 }
             }
         }
-        public string Otchet()
-        {
-            return otchet;
-        }
+        
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ModelingworkProvaider.Inteface;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ModelingworkProvaider
 {
-    public class QueueUsers
+    public class QueueUsers :IQueueUsers
     {
         public Queue<User> queue;
         public int cout { get; set; }
@@ -15,10 +16,12 @@ namespace ModelingworkProvaider
         {
             queue = new Queue<User>();
         }
-        public void Add(int servisetime)
+        public int Add(int servisetime)
         {
-            queue.Enqueue(new User(servisetime));
+            User user = new User(servisetime);
+            queue.Enqueue(user);
             cout++;
+            return user.Id;
         }
         public User Remove()
         {

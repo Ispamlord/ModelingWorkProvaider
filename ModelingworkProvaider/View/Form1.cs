@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ModelingworkProvaider.Inteface;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,8 +24,8 @@ namespace ModelingworkProvaider
         {
             InitializeComponent();
         }
-        public string huinapopov = "Пользователь под Id: ";
-        public string huigav = "зашел в сеть";
+        public string otchet = "Пользователь под Id: ";
+        public string otchetafter = "зашел в сеть";
         private void Form1_Load(object sender, EventArgs e)
         {
             
@@ -55,7 +56,9 @@ namespace ModelingworkProvaider
             {
                 checkBox2.Checked = false;
                 checkBox3.Checked = false;
-            } Rules_for_generation_human = 1;
+                textBox3.Visible = true;
+                Rules_for_generation_human = 1;
+            }
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
@@ -64,8 +67,9 @@ namespace ModelingworkProvaider
             {
                 checkBox1.Checked = false;
                 checkBox3.Checked = false;
+                textBox3.Visible = false;
+                Rules_for_generation_human = 2;
             }
-            Rules_for_generation_human = 2;
         }
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)//задание параметров генерации
@@ -74,13 +78,14 @@ namespace ModelingworkProvaider
             {
                 checkBox1.Checked = false;
                 checkBox2.Checked = false;
+                textBox3.Visible = true;
+                Rules_for_generation_human = 3;
             }
-            Rules_for_generation_human = 3;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Provaider provaider = new Provaider(int.Parse(textBox1.Text));
+            IProvaider provaider = new Provaider(int.Parse(textBox1.Text));
             QueueUsers users = new QueueUsers();
             bool spawner = false;
             int spawn = 0;
@@ -89,9 +94,8 @@ namespace ModelingworkProvaider
                 if(spawner == false)
                 {
                     spawn = Convert.ToInt32(chislo())+1;
-                    users.Add(Convert.ToInt32(GenerateTime()));
-                    huinapopov += users.cout;
-                    listBox1.Items.Add(huinapopov);
+                    int userID= users.Add(Convert.ToInt32(GenerateTime()));
+                    listBox1.Items.Add(otchet+userID+otchetafter);
                     spawner = true;
                     continue;
                 }
@@ -101,9 +105,8 @@ namespace ModelingworkProvaider
                 provaider.working(users);
                 spawn--;
                 chart1.Series[0].Points.AddXY(i, users.cout);
-                //listBox1.Items.Add();
-                //listBox1.Items.Add(users.cout);
             }
+            users.Clear();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -165,7 +168,7 @@ namespace ModelingworkProvaider
             }
             else if (Rules_for_generation_human == 2)
             {
-                //rand = rd.ExponecialNextArrivalTime(int.Parse(textBox4.Text));
+                rand = rd.ExponecialNextArrivalTime(int.Parse(textBox2.Text));
             }
             else
             {
@@ -226,8 +229,8 @@ namespace ModelingworkProvaider
                 checkBox5.Checked = false;
                 checkBox6.Checked = false;
                 textBox5.Visible = false;
+                time_for_Users = 1;
             }
-            time_for_Users = 1;
         }
 
         private void checkBox5_CheckedChanged(object sender, EventArgs e)
@@ -237,8 +240,9 @@ namespace ModelingworkProvaider
                 checkBox4.Checked = false;
                 checkBox6.Checked = false;
                 textBox5.Visible = false;
+                time_for_Users = 2;
             }
-            time_for_Users = 2;
+            
         }
 
         private void checkBox6_CheckedChanged(object sender, EventArgs e)
@@ -248,8 +252,9 @@ namespace ModelingworkProvaider
                 checkBox5.Checked = false;
                 checkBox4.Checked = false;
                 textBox5.Visible = true;
+                time_for_Users = 3;
             }
-            time_for_Users = 3;
+            
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)

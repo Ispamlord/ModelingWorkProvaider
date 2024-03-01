@@ -47,6 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Inteface\ILine.cs" />
+    <Compile Include="Inteface\IMyView.cs" />
+    <Compile Include="Inteface\IProvaider.cs" />
+    <Compile Include="Inteface\IQueueUsers.cs" />
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

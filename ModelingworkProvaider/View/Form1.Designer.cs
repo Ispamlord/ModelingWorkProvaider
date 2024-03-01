@@ -98,9 +98,9 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Location = new System.Drawing.Point(723, 65);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(200, 20);
+            this.checkBox2.Size = new System.Drawing.Size(199, 20);
             this.checkBox2.TabIndex = 3;
-            this.checkBox2.Text = "Распределение Пуассона";
+            this.checkBox2.Text = "Экспоненциальный закон";
             this.checkBox2.UseVisualStyleBackColor = true;
             this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 

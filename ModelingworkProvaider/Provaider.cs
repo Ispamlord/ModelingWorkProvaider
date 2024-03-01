@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ModelingworkProvaider.Inteface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace ModelingworkProvaider
 {
-    public class Provaider
+    public class Provaider : IProvaider
     {
-        private Line[] lines;
+        private ILine[] lines;
 
         public Provaider(int count)
         {
